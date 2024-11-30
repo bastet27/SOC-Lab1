@@ -1,5 +1,18 @@
 # SOC Automation Lab Project  
 
+# SOC Automation Lab Project  
+
+## Table of Contents  
+
+| Description                         | Link                                            |
+|-------------------------------------|------------------------------------------------|
+| Research and Getting Ready          | [Research and Getting Ready](#day-1-research-and-getting-ready) |
+| Visualization                       | [Visualization](#visualization)            |
+| -                  | [3 ]            |
+| -                  | [4 ]            |
+| -                  | [5 ]            |
+
+
 ### :green_book: Introduction  
 
 I’m excited to embark on a journey to build a fully functional **SOC (Security Operations Center) Automation Lab**, following the guide outlined in this [write-up](https://medium.com/@jashankhaira52/day-1-building-your-soc-automation-lab-an-introduction-and-overview-c1825642369e). This project is an opportunity to gain hands-on experience with incident detection, response, and automation, using tools commonly found in SOC environments.  
@@ -28,10 +41,7 @@ Cloud-based labs are a game-changer for accessibility and scalability. With AWS 
 
 This SOC Automation Lab will help me gain real-world cybersecurity skills while laying the foundation for future growth and advanced integrations. Stay tuned as I document this exciting process and share my progress! 🚀  
 
-## Day 1: Researching and Getting Ready
-
-# SOC Automation Lab Project  
-## Day 1: Research and Getting Ready  
+## Research and Getting Ready
 
 ### :green_book: Tasks Completed  
 
@@ -59,6 +69,4 @@ This SOC Automation Lab will help me gain real-world cybersecurity skills while 
   - Integration with tools like Wazuh and The Hive for seamless response actions.  
   - Customizable workflows to streamline repetitive tasks, improving SOC efficiency.  
 
-### :bookmark_tabs: Next Steps  
-
-With the research phase underway, I’ll begin preparing the AWS environment and laying the foundation for tool integrations in the coming days. Stay tuned as I document this journey step-by-step! 🚀  
+## Vizualization 
