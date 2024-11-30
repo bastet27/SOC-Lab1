@@ -1,7 +1,5 @@
 # SOC Automation Lab Project  
 
-# SOC Automation Lab Project  
-
 ## Table of Contents  
 
 | Description                         | Link                                            |
