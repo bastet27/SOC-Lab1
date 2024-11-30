@@ -6,7 +6,7 @@
 
 | Description                         | Link                                            |
 |-------------------------------------|------------------------------------------------|
-| Research and Getting Ready          | [Research and Getting Ready](#day-1-research-and-getting-ready) |
+| Research and Getting Ready          | [Research and Getting Ready](#research-and-getting-ready) |
 | Visualization                       | [Visualization](#visualization)            |
 | -                  | [3 ]            |
 | -                  | [4 ]            |
@@ -69,4 +69,4 @@ This SOC Automation Lab will help me gain real-world cybersecurity skills while 
   - Integration with tools like Wazuh and The Hive for seamless response actions.  
   - Customizable workflows to streamline repetitive tasks, improving SOC efficiency.  
 
-## Vizualization 
+## Visualization 
