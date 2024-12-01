@@ -2,11 +2,11 @@
 
 ## Table of Contents  
 
-| Description                         | Link                                            |
-|-------------------------------------|------------------------------------------------|
-| Research and Getting Ready          | [Research and Getting Ready](#research-and-getting-ready) |
-| Visualization                       | [Visualization](#visualization)            |
-| -                  | [3 ]            |
+| Description                         |
+|-------------------------------------|
+| [Research and Getting Ready](#research-and-getting-ready) |
+| [Visualization](#visualization)            |
+| [Installing Wazuh](#installing-wazuh)            |
 | -                  | [4 ]            |
 | -                  | [5 ]            |
 
@@ -117,3 +117,82 @@ This SOC Automation Lab will help me gain real-world cybersecurity skills while 
 | 💙    | **Response Action**: SOC Analyst → Shuffle → Wazuh Manager → Windows 10              | Executes remediation actions based on analyst input.  |
 
 The workflow diagram is a critical tool in understanding how data flows through the SOC automation system. Each color-coded step represents a distinct function, from capturing event logs to enriching data and responding to incidents. The purpose of the diagram is to clearly visualize the roles of each component and their interactions, ensuring the SOC system operates seamlessly. This serves as a reference point for implementing and configuring the lab, allowing for efficient detection, enrichment, and response processes.
+
+## Installing Wazuh
+
+### :green_book: Tasks Completed  
+
+1. **Launched an EC2 Instance**  
+   - Used **AWS EC2** instead of DigitalOcean for hosting Wazuh, leveraging AWS's **Free Tier** to minimize costs while gaining access to a scalable and reliable platform.  
+   - Configured the instance with appropriate security group rules for SSH, HTTP, and HTTPS access.  
+
+2. **Installed Wazuh**  
+   - Successfully installed Wazuh using the official installation script, bypassing a minor compatibility check issue.  
+
+### :computer: Setting Up the EC2 Instance  
+
+#### **Instance Configuration**  
+- **Instance Type**: t2.micro (Free Tier eligible; 1 vCPU, 1GB RAM).  
+- **AMI**: Ubuntu 22.04 LTS.  
+- **Storage**: 30GB General Purpose SSD (gp2).  
+- **Security Group Rules**:  
+  | **Rule** | **Type**  | **Protocol** | **Port Range** | **Source**         |  
+  |----------|-----------|--------------|----------------|---------------------|  
+  | 1        | SSH       | TCP          | 22             | My IP (`<Your_IP>`)|  
+  | 2        | HTTPS     | TCP          | 443            | Anywhere (0.0.0.0/0)|  
+  | 3        | HTTP      | TCP          | 80             | Anywhere (0.0.0.0/0)|  
+
+#### **Why AWS Instead of DigitalOcean?**  
+- **Cost-Effective**: AWS's **Free Tier** allowed me to run a t2.micro instance at no cost for the first 12 months.  
+- **Scalability**: AWS provides easy scalability for future needs as the SOC lab grows.  
+- **Global Infrastructure**: AWS’s wide range of data centers offers better performance and reliability.  
+
+#### Wazuh Instance is Running
+
+<img width="1064" alt="wazuh-aws-instance-running" src="https://github.com/user-attachments/assets/b30cd223-3de6-4f1a-8c90-b22b2efbf266">
+
+
+#### **Connecting to the Instance**  
+- **SSH Command**:  
+  ```
+  ssh -i "wazuh-key.pem" ubuntu@<Your_EC2_Public_IP>
+  ```
+
+- **Updating the System**:  
+  After connecting, updated and upgraded the system packages to ensure compatibility:  
+  ```
+  sudo apt-get update && sudo apt-get upgrade -y
+  ```
+
+### :wrench: Installing Wazuh  
+
+#### **Download and Run the Installation Script**  
+- Downloaded the Wazuh installation script and executed it with a compatibility check bypass:  
+  ```
+  curl -sO https://packages.wazuh.com/4.7/wazuh-install.sh && sudo bash ./wazuh-install.sh -a --ignore-check
+  ```
+
+#### **Post-Installation Notes**  
+- Saved the admin credentials displayed after the installation for accessing the Wazuh dashboard.  
+- Verified installation logs to ensure no errors:  
+  ```
+  cat /var/log/wazuh-install.log
+  ```
+
+### :chart_with_upwards_trend: Accessing the Wazuh Dashboard  
+
+#### **Access URL**  
+- Accessed the Wazuh dashboard by entering the EC2 instance’s public IP in a web browser:  
+  ```
+  https://<Your_EC2_Public_IP>
+  ```
+
+#### **Security Warning**  
+- Clicked **Advanced > Proceed** to bypass the warning caused by the self-signed certificate.  
+
+#### **Login**  
+- Used the admin credentials saved during the installation to log in to the dashboard.  
+
+### Summary  
+
+For hosting Wazuh, I chose **AWS EC2** instead of DigitalOcean, primarily because of the **Free Tier**, which allowed me to deploy a t2.micro instance at no cost. AWS’s scalability and global infrastructure provide a robust platform for building the SOC Automation Lab. This step involved configuring the instance, setting up security group rules, and successfully installing Wazuh. The Wazuh dashboard is now operational, serving as the foundation for monitoring and managing security events in the lab. 🚀  
